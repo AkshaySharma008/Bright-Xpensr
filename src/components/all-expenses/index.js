@@ -1,35 +1,41 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import "./all-expenses.css";
 import Dropdown from './dropdown';
 import ExpenseTable from "./expense-table";
 
 function AllExpenses(){
-    const [searchQuery, setSearchQuery] = useState("");
-    const dispatch = useDispatch();
-    const handleSearch = (e) => {
-        setSearchQuery(e.target.value);
-        dispatch.searchQuery(e.target.value);
+    let {expenseList: list} = useSelector((state)=> state.expenses);
+    const [listArr, setListArr] = useState(list);
+    let categoryList = list.map(item => item.category);
+    categoryList = ["None", ...new Set(categoryList)]
+    const dropdownCategories = [{types: categoryList,},];
+    const filterByCategory = (e) => {
+        if(e !== "None")
+        list = list.filter(item => item.category === e);
+        setListArr(list);
     }
-    const {expenseList: list} = useSelector((state)=> state.expenses);
-    const dropdownCategories = [{types: ["One", "Two", "Three", "Four", "Five"],},];    
+    useEffect(() => {
+        setListArr(listArr)
+        }, [listArr])
+
       return(
         <div className="all-expenses">
             <div className="all-expenses-options">
-                <div className="search">
+                {/* <div className="search">
                     <input
                         placeholder={`Search any Expense`}
                         value={searchQuery}
                         onChange={(e) => handleSearch(e)}
                     />
                     <i className="fi-rr-search"></i>
-                </div>
+                </div> */}
                 <div className="options-dropdown">
                     <div className="dropdown-parent">
                         <Dropdown
                           options={dropdownCategories}
-                        //   onSelect={}
+                          onSelect={filterByCategory}
                           toShow="Enter Category Name"
                         />
                     </div>
@@ -42,7 +48,7 @@ function AllExpenses(){
                     </Link>
                 </div>
       </div>
-        <ExpenseTable list={list}/>
+        <ExpenseTable list={listArr}/>
         </div>
     )
 }

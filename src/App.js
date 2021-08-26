@@ -11,6 +11,8 @@ import store from './reduxstore/store';
 import Header from "./components/common/header";
 import AllExpenses from "./components/all-expenses";
 import AddExpense from "./components/add-expense";
+import ExpenseAnalysis from "./components/expense-analysis";
+import DueExpenses from "./components/due-expenses";
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
             </Route>
             <Route exact path="/add-expense">
               <AddExpense />
+            </Route>
+            <Route exact path="/expenses-analysis">
+              <ExpenseAnalysis/>
+            </Route>
+            <Route exact path="/due-expenses">
+              <DueExpenses/>
             </Route>
           </Switch>
         </Router>
