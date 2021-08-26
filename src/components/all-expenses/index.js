@@ -23,14 +23,6 @@ function AllExpenses(){
       return(
         <div className="all-expenses">
             <div className="all-expenses-options">
-                {/* <div className="search">
-                    <input
-                        placeholder={`Search any Expense`}
-                        value={searchQuery}
-                        onChange={(e) => handleSearch(e)}
-                    />
-                    <i className="fi-rr-search"></i>
-                </div> */}
                 <div className="options-dropdown">
                     <div className="dropdown-parent">
                         <Dropdown
@@ -48,7 +40,7 @@ function AllExpenses(){
                     </Link>
                 </div>
       </div>
-        <ExpenseTable list={listArr}/>
+        <ExpenseTable list={list}/>
         </div>
     )
 }

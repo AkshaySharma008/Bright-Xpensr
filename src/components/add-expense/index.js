@@ -97,12 +97,6 @@ function AddExpense(){
                     onChange = {(e) => handleCategory(e)}
                 />
             </div>
-            {/* <div className="form-add-button">
-                <div onClick={handleSubmit} >
-                    <label className="add-btn">Add Expense</label>
-                    <i className="fi-rr-paper-plane"></i>
-                </div>
-            </div> */}
             <div className="form-add-button">
             <button className="add-expense-btn" onClick={handleSubmit} >Add Expense</button>
             </div>

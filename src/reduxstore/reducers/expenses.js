@@ -1,4 +1,4 @@
-import { ADD_EXPENSE, DELETE_EXPENSE, EDIT_EXPENSE, SEARCH_EXPENSE } from "../actionTypes/expenses";
+import { ADD_EXPENSE, DELETE_EXPENSE, EDIT_EXPENSE } from "../actionTypes/expenses";
 
 const initialList = () =>{
     const list = localStorage.getItem("expense-list");
@@ -11,9 +11,7 @@ const initialList = () =>{
 
 const initialState = {
     expenseList: initialList(),
-    query: ""
 }
-
 export const expenseReducer = (state = initialState, action) => {
     switch(action.type){
         case ADD_EXPENSE : {
@@ -32,13 +30,6 @@ export const expenseReducer = (state = initialState, action) => {
             return{
                 ...state,
                 expenseList: updatedList
-            }
-        }
-        case SEARCH_EXPENSE: {
-            const {query} = action;
-            return {
-                ...state,
-                query
             }
         }
         case EDIT_EXPENSE:{
