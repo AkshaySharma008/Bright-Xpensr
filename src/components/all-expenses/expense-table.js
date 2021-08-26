@@ -39,7 +39,7 @@ function ExpenseTable(props){
       </div>
       <div className="table-body">
         <div className="table">
-          {list.length? (
+          {list.length ? (
             list.map((data, i) => {
               return(
                 <div className="table-row" key={i}>
