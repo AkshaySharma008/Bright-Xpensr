@@ -13,8 +13,8 @@ function AllExpenses(){
         dispatch.searchQuery(e.target.value);
     }
     const {expenseList: list} = useSelector((state)=> state.expenses);
-    // const filteredList = list.filter(item => item.description.includes(query));
-    return(
+    const dropdownCategories = [{types: ["One", "Two", "Three", "Four", "Five"],},];    
+      return(
         <div className="all-expenses">
             <div className="all-expenses-options">
                 <div className="search">
@@ -27,10 +27,9 @@ function AllExpenses(){
                 </div>
                 <div className="options-dropdown">
                     <div className="dropdown-parent">
-                        {/* <label className="dropdown-title-label">Filter Expenses</label> */}
                         <Dropdown
-                        //   options={dropdownCategories}
-                        //   onSelect={changeCategory}
+                          options={dropdownCategories}
+                        //   onSelect={}
                           toShow="Enter Category Name"
                         />
                     </div>
@@ -41,7 +40,6 @@ function AllExpenses(){
                             Add Expense
                         </button>
                     </Link>
-
                 </div>
       </div>
         <ExpenseTable list={list}/>

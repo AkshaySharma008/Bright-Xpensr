@@ -8,6 +8,7 @@ export const addExpense = (data) => {
 };
 
 export const editExpense = (data) => {
+    console.log(data);
     return {
         type : EDIT_EXPENSE,
         data

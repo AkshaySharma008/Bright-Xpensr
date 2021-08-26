@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './expense-table.css'
 import dateFormat from 'dateformat'
 import { useDispatch } from 'react-redux';
 import { deleteExpense } from '../../reduxstore/actions/expenses';
+import Modal from './modal';
 
 function ExpenseTable(props){
+  const [showModal, setShowModal] = useState(false);
+  const [editDetails, setEditDetails] = useState();
   const {list} = props;
   const dispatch = useDispatch();
   const handleDeleteExpense = (item) => {
       dispatch(deleteExpense(item))
-      console.log(item);
   }
+
+  const openEditModal = (item) => {
+    setShowModal(true);
+    setEditDetails(item);
+  }
+
+  const hideModal = () => {
+    setShowModal(false);
+  }
+
     return(
+      <div>
         <div className="table-container">
         <div className="table-header">
         <div className="table">
@@ -59,7 +72,9 @@ function ExpenseTable(props){
                 <div className="">{data.amount}</div>
               </div>
               <div className="table-column actions">
-              <button className="action-button"><i className="fi-sr-pencil edit-icon"></i></button>
+              <button className="action-button" 
+              onClick={() => openEditModal(data)} 
+              ><i className="fi-sr-pencil edit-icon"></i></button>
               <button className="action-button" onClick={() => {
                 handleDeleteExpense(data);
               }}><i className="fi-sr-trash  delete-icon"></i></button>
@@ -82,6 +97,10 @@ function ExpenseTable(props){
           )}
         </div>
       </div>
+    </div>
+    <div className="expenses-modal">
+         {showModal ? <Modal  show={showModal} handleCloseBtn={hideModal} details={editDetails} /> : ''}
+        </div>
     </div>
     )
 }

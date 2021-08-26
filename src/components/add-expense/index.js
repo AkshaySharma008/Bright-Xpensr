@@ -74,7 +74,7 @@ function AddExpense(){
             <div className="form-item">
                 <label>Description</label>
                 <input 
-                placeholder="    Add Expense description" 
+                placeholder="Add Expense description" 
                 value = {description}
                 onChange = { (e) => handleDescription(e)}
                 />
@@ -83,7 +83,7 @@ function AddExpense(){
                 <label>Amount ₹</label>
                 <input
                     type="Number"
-                    placeholder="    Enter Expense Amount" 
+                    placeholder="  Enter Expense Amount" 
                     value={amount}
                     onChange = { (e) => handleAmount(e)}
                 />
@@ -92,7 +92,7 @@ function AddExpense(){
             <div className="form-item">
                 <label>Category</label>
                 <input 
-                    placeholder="    Enter Expense Category"
+                    placeholder="   Enter Expense Category"
                     value={category}
                     onChange = {(e) => handleCategory(e)}
                 />
@@ -103,8 +103,8 @@ function AddExpense(){
                     <i className="fi-rr-paper-plane"></i>
                 </div>
             </div> */}
-            <div onClick={handleSubmit} className="form-add-button">
-            <button className="add-expense-btn">Add Expense</button>
+            <div className="form-add-button">
+            <button className="add-expense-btn" onClick={handleSubmit} >Add Expense</button>
             </div>
 
         </div>
