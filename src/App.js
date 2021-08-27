@@ -7,18 +7,19 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import { Provider } from "react-redux";
-import store from './reduxstore/store';
+import store from "./reduxstore/store";
 import Header from "./components/common/header";
 import AllExpenses from "./components/all-expenses";
 import AddExpense from "./components/add-expense";
 import ExpenseAnalysis from "./components/expense-analysis";
 import DueExpenses from "./components/due-expenses";
+import Footer from "./components/common/footer";
 
 function App() {
   return (
     <Provider store={store}>
       <div className="app">
-      <Router>
+        <Router>
           <Header />
           <Switch>
             <Route exact path="/">
@@ -31,12 +32,13 @@ function App() {
               <AddExpense />
             </Route>
             <Route exact path="/expenses-analysis">
-              <ExpenseAnalysis/>
+              <ExpenseAnalysis />
             </Route>
             <Route exact path="/due-expenses">
-              <DueExpenses/>
+              <DueExpenses />
             </Route>
           </Switch>
+          <Footer />
         </Router>
       </div>
     </Provider>

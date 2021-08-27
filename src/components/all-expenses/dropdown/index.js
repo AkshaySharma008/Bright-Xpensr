@@ -25,7 +25,7 @@ function Dropdown({ options, onSelect, toShow }) {
       </div>
       {open ? (
         <div className="topic-list">
-          {options.map(({ types}) => {
+          {options.map(({ types }) => {
             return (
               <div className="topic-list-item">
                 <div className="sub-topic-list">

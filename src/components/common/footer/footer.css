@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer h4 {
+  text-align: center;
+}
+
+.author-name {
+  color: #ef9a9a;
+}
+
+.company-name {
+  color: #00baff;
+}

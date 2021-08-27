@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./header.css";
 
-
-function Header(){
+function Header() {
   const tabName = window.location.pathname.substring(1);
   const [tab, setTab] = useState(tabName);
-  return(
+  return (
     <div className="header">
       <Link to="/all-expenses" className="logo-a">
         <label className="logo">Bright Xpensr</label>
@@ -22,7 +21,9 @@ function Header(){
         </Link>
         <Link to="/expenses-analysis">
           <label
-            className={`menu-option ${tab === "expenses-analysis" && "active-tab"}`}
+            className={`menu-option ${
+              tab === "expenses-analysis" && "active-tab"
+            }`}
             onClick={() => setTab("expenses-analysis")}
           >
             Expenses Analysis
@@ -38,7 +39,7 @@ function Header(){
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
 export default Header;
