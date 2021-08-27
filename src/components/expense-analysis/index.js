@@ -1,6 +1,7 @@
 import React from "react";
 import "./expense-analysis.css";
 import { Bar } from "react-chartjs-2";
+import { useSelector } from "react-redux";
 
 const arbitraryStackKey = "stack1";
 
@@ -81,6 +82,8 @@ const options = {
 };
 
 const ExpenseAnalysis = () => {
+  let { expenseList: list } = useSelector((state) => state.expenses);
+  console.log(list);
   return (
     <div className="chart">
       <Bar data={data} options={options} />
