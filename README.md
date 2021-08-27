@@ -2,6 +2,8 @@
 <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg"> <img src="https://img.shields.io/badge/ReactJS-v16.14.0-brightgreen.svg">
 
 A Personal Expense Tracker to manage your personal Expenses with beautiful utilities like charts which shows your monthly expenses along with calculative paying of dues.
+
+**Note** - <i>Some data has been inserted already for the sake of UI Features and use cases. If you want to remove them, Go to your Local Storage and clear "expense-item" list.</i>
 * Portal Link - https://bright-xpensr.netlify.app/
 
 ## Contents
