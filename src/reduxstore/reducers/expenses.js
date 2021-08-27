@@ -1,3 +1,4 @@
+import { DefaultData } from "../../components/constants/expenses";
 import {
   ADD_EXPENSE,
   DELETE_EXPENSE,
@@ -6,7 +7,8 @@ import {
 
 const initialList = () => {
   const list = localStorage.getItem("expense-list");
-  let expenses = [];
+  let expenses = DefaultData;
+  localStorage.setItem("expense-list", JSON.stringify(expenses));
   if (list) {
     expenses = JSON.parse(list);
   }

@@ -41,11 +41,15 @@ const AllExpenses = () => {
       <div className="all-expenses-options">
         <div className="options-dropdown">
           <div className="dropdown-parent">
-            <label className="dropdown-title-label">Choose Category</label>
+            <label className="dropdown-title-label">Choose Your Category</label>
             <Dropdown
               options={dropdownCategories}
               onSelect={filterByCategory}
-              toShow={currentCategorySeached}
+              toShow={
+                currentCategorySeached === "None"
+                  ? "Choose Category"
+                  : currentCategorySeached
+              }
             />
           </div>
         </div>

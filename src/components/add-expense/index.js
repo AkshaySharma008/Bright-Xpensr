@@ -20,10 +20,7 @@ const AddExpense = () => {
 
   const handleSubmit = () => {
     if (description === "" || amount === "" || category === "") {
-      const notify = () => {
-        toast("Please Enter Valid Data !!!");
-      };
-      notify();
+      toast("Please Enter Valid Data !!!");
       return;
     }
 
@@ -36,7 +33,6 @@ const AddExpense = () => {
     };
 
     dispatch(addExpense(data));
-    toast("New Expense Added Successfully !!!");
     setModalOpen(true);
   };
 

@@ -7,11 +7,11 @@ const Header = () => {
   const [tab, setTab] = useState(tabName);
   return (
     <div className="header">
-      <Link to="/all-expenses" className="logo-a">
+      <Link to="/" className="logo-a">
         <label className="logo">Bright Xpensr</label>
       </Link>
       <div className="header-menu">
-        <Link to="/all-expenses">
+        <Link to="/">
           <label
             className={`menu-option ${tab === "all-expenses" && "active-tab"}`}
             onClick={() => setTab("all-expenses")}

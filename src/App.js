@@ -23,9 +23,6 @@ function App() {
           <Header />
           <Switch>
             <Route exact path="/">
-              <Redirect to="/all-expenses" />
-            </Route>
-            <Route exact path="/all-expenses">
               <AllExpenses />
             </Route>
             <Route exact path="/add-expense">

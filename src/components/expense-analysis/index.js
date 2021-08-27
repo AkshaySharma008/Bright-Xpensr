@@ -6,37 +6,6 @@ import Dropdown from "../all-expenses/dropdown";
 import { MonthsArray, MonthsMapWithNumber } from "../constants/expenses";
 import dateFormat from "dateformat";
 
-const data = {
-  labels: [],
-  datasets: [
-    {
-      label: "Expense Amount (In INR)",
-      data: [],
-      fill: false,
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "rgba(255, 99, 132, 0.2)",
-    },
-  ],
-};
-
-const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-    xAxes: [
-      {
-        type: "time",
-        distribution: "series",
-      },
-    ],
-  },
-};
-
 const dropdownMonths = [{ types: [...MonthsArray] }];
 
 const getAllDatesInAMonth = (selectedMonth, list) => {
@@ -60,13 +29,41 @@ const ExpenseAnalysis = () => {
   const filterByMonth = (month) => {
     setCurrentSelectedMonth(month);
   };
-  const { expenseDatesInMonthArray, dateArrayInMonth, amountArrayInMonth } =
-    getAllDatesInAMonth(currentSelectedMonth, list);
-  console.log(expenseDatesInMonthArray, dateArrayInMonth, amountArrayInMonth);
-  // this.chartData.label = dateArrayInMonth;
-  // this.chartData.datasets[0].data = amountArrayInMonth;
-  // this.chartData.update();
+  const { dateArrayInMonth, amountArrayInMonth } = getAllDatesInAMonth(
+    currentSelectedMonth,
+    list
+  );
 
+  const data = {
+    labels: dateArrayInMonth,
+    datasets: [
+      {
+        label: "Expense Amount (In INR)",
+        data: amountArrayInMonth,
+        fill: true,
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgba(255, 99, 132, 0.2)",
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      yAxes: [
+        {
+          ticks: {
+            beginAtZero: false,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          type: "time",
+          distribution: "series",
+        },
+      ],
+    },
+  };
   return (
     <div className="analytics-chart">
       <div>

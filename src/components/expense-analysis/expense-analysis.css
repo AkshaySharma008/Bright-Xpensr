@@ -8,6 +8,7 @@
 
 .analytics-chart {
   display: flex;
+  flex: 200px;
   justify-content: center;
   align-items: center;
 }

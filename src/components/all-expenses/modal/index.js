@@ -4,6 +4,7 @@ import "./modal.css";
 import { editExpense } from "../../../reduxstore/actions/expenses";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const Modal = (prop) => {
   const { handleCloseBtn, details } = prop;
