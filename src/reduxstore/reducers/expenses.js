@@ -1,4 +1,4 @@
-import { DefaultData } from "../../components/constants/expenses";
+import { DefaultData } from "../../constants/expenses";
 import {
   ADD_EXPENSE,
   DELETE_EXPENSE,

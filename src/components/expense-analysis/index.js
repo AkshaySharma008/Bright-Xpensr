@@ -3,8 +3,8 @@ import "./expense-analysis.css";
 import { useSelector } from "react-redux";
 import { Line } from "react-chartjs-2";
 import Dropdown from "../all-expenses/dropdown";
-import { MonthsArray, MonthsMapWithNumber } from "../constants/expenses";
 import dateFormat from "dateformat";
+import { MonthsArray, MonthsMapWithNumber } from "../../constants/expenses";
 
 const dropdownMonths = [{ types: [...MonthsArray] }];
 

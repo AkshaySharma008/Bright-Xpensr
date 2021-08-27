@@ -3,9 +3,9 @@ import "./expense-table.css";
 import dateFormat from "dateformat";
 import { useDispatch } from "react-redux";
 import { deleteExpense } from "../../reduxstore/actions/expenses";
-import Modal from "./modal";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Modal from "./edit-expense-modal";
 
 const ExpenseTable = (props) => {
   const [showModal, setShowModal] = useState(false);
