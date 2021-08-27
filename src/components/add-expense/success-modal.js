@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 const SuccessModal = ({modalOpen, setModalOpen}) => {
     const customStyles = {
         content: {
-          top: '50%',
+          top: '40%',
           left: '50%',
           right: 'auto',
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: '#00baff',
-          borderRadius:'10px'
+          backgroundColor: 'white',
+          borderRadius:'10px',
         },
       };
     return (

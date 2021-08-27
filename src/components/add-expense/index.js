@@ -24,13 +24,10 @@ function AddExpense(){
         setCategory(e.target.value);
     }
     const { goBack } = useHistory();
-    const cancel = () => {
-        console.log('cancel');
-    }
     const handleSubmit = () => {
         if(description === "" || amount === "" || category === ""){
             const notify = () => {
-                toast("Please Enter Valid Expense Date !!!")
+                toast("Please Enter Valid Data !!!")
             }
             notify();
             return;
@@ -42,6 +39,8 @@ function AddExpense(){
             createdAt: new Date()
         };
         dispatch(addExpense(data));
+        // goBack();
+        toast("New Expense Added Successfully !!!")
         setModalOpen(true);
     }
     return (
@@ -63,7 +62,7 @@ function AddExpense(){
             <i className="fi-rr-angle-left"></i>
             Back
             </div>
-            <div className="cancel-button back-button" onClick={() => cancel()}>
+            <div className="cancel-button back-button" onClick={() => goBack()}>
             <i className="fi-rr-cross-circle"></i>
             Cancel
             </div>
