@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
 
-function Header() {
+const Header = () => {
   const tabName = window.location.pathname.substring(1);
   const [tab, setTab] = useState(tabName);
   return (
@@ -40,6 +40,6 @@ function Header() {
       </div>
     </div>
   );
-}
+};
 
 export default Header;

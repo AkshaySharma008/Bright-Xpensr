@@ -11,18 +11,20 @@ const getUniqueCategories = (list) => {
   return uniqueList;
 };
 
-function AllExpenses() {
+const AllExpenses = () => {
   let { expenseList: list } = useSelector((state) => state.expenses);
   const [listArr, setListArr] = useState(list);
   const [currentCategorySeached, setCurrentCategorySearched] = useState("None");
   let categoryList = getUniqueCategories(list);
   const dropdownCategories = [{ types: categoryList }];
 
-  const filterByCategory = (e) => {
-    setCurrentCategorySearched(e);
-    if (e !== "None") list = list.filter((item) => item.category === e);
+  const filterByCategory = (category) => {
+    setCurrentCategorySearched(category);
+    if (category !== "None")
+      list = list.filter((item) => item.category === category);
     setListArr(list);
   };
+
   useEffect(() => {
     setListArr(listArr);
   }, [listArr]);
@@ -58,6 +60,6 @@ function AllExpenses() {
       </div>
     </div>
   );
-}
+};
 
 export default AllExpenses;

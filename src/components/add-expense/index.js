@@ -7,22 +7,14 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SuccessModal from "./success-modal";
 
-function AddExpense() {
+const AddExpense = () => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState();
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
-  const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
-  const handleAmount = (e) => {
-    setAmount(e.target.value);
-  };
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-  };
   const { goBack } = useHistory();
+
   const handleSubmit = () => {
     if (description === "" || amount === "" || category === "") {
       const notify = () => {
@@ -31,17 +23,19 @@ function AddExpense() {
       notify();
       return;
     }
+
     const data = {
       description,
       amount,
       category,
       createdAt: new Date(),
     };
+
     dispatch(addExpense(data));
-    // goBack();
     toast("New Expense Added Successfully !!!");
     setModalOpen(true);
   };
+
   return (
     <div className="expense-details">
       <ToastContainer
@@ -71,7 +65,7 @@ function AddExpense() {
             <input
               placeholder="Add Expense description"
               value={description}
-              onChange={(e) => handleDescription(e)}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
           <div className="form-item">
@@ -80,7 +74,7 @@ function AddExpense() {
               type="Number"
               placeholder="  Enter Expense Amount"
               value={amount}
-              onChange={(e) => handleAmount(e)}
+              onChange={(e) => setAmount(e.target.value)}
             />
           </div>
           <div className="form-item">
@@ -88,7 +82,7 @@ function AddExpense() {
             <input
               placeholder="   Enter Expense Category"
               value={category}
-              onChange={(e) => handleCategory(e)}
+              onChange={(e) => setCategory(e.target.value)}
             />
           </div>
           <div className="form-add-button">
@@ -100,6 +94,6 @@ function AddExpense() {
       </div>
     </div>
   );
-}
+};
 
 export default AddExpense;

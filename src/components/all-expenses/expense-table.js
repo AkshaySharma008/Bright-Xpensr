@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { deleteExpense } from "../../reduxstore/actions/expenses";
 import Modal from "./modal";
 
-function ExpenseTable(props) {
+const ExpenseTable = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [editDetails, setEditDetails] = useState();
   const { list } = props;
@@ -121,6 +121,6 @@ function ExpenseTable(props) {
       </div>
     </div>
   );
-}
+};
 
 export default ExpenseTable;

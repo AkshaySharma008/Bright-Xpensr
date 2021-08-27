@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./dropdown.css";
 
-function Dropdown({ options, onSelect, toShow }) {
+const Dropdown = ({ options, onSelect, toShow }) => {
   const [open, setOpen] = useState(false);
   const changeHandler = () => {
     setOpen(!open);
@@ -48,6 +48,6 @@ function Dropdown({ options, onSelect, toShow }) {
       ) : null}
     </div>
   );
-}
+};
 
 export default Dropdown;

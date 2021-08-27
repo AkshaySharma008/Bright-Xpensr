@@ -9,18 +9,7 @@ const Modal = (prop) => {
   const [amount, setAmount] = useState(details.amount);
   const [category, setCategory] = useState(details.category);
   const dispatch = useDispatch();
-  const handleClose = () => {
-    return handleCloseBtn();
-  };
-  const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
-  const handleAmount = (e) => {
-    setAmount(e.target.value);
-  };
-  const handleCategory = (e) => {
-    setCategory(e.target.value);
-  };
+
   const handleSubmit = () => {
     const updatedData = {
       description,
@@ -31,6 +20,7 @@ const Modal = (prop) => {
     dispatch(editExpense(updatedData));
     handleCloseBtn();
   };
+
   return (
     <div className="modal">
       <div className="modal-info">
@@ -41,7 +31,7 @@ const Modal = (prop) => {
             <input
               placeholder="Add Expense description"
               value={description}
-              onChange={(e) => handleDescription(e)}
+              onChange={(e) => setDescription(e.target.value)}
             />
           </div>
           <div className="form-item">
@@ -50,7 +40,7 @@ const Modal = (prop) => {
               type="Number"
               placeholder="  Enter Expense Amount"
               value={amount}
-              onChange={(e) => handleAmount(e)}
+              onChange={(e) => setAmount(e.target.value)}
             />
           </div>
           <div className="form-item">
@@ -58,7 +48,7 @@ const Modal = (prop) => {
             <input
               placeholder="   Enter Expense Category"
               value={category}
-              onChange={(e) => handleCategory(e)}
+              onChange={(e) => setCategory(e.target.value)}
             />
           </div>
           <div className="form-add-button">
@@ -66,7 +56,7 @@ const Modal = (prop) => {
               Edit Expense
             </button>
             &nbsp;
-            <button className="cancel-btn" onClick={handleClose}>
+            <button className="cancel-btn" onClick={handleCloseBtn}>
               Cancel
             </button>
           </div>
