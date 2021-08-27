@@ -97,7 +97,7 @@ const DueExpenses = () => {
                             : "table-column date"
                         }
                       >
-                        <div>{dateFormat(data.createdAt, "dd-mm-yyyy")}</div>
+                        <div>{dateFormat(data.dueDate, "dd-mm-yyyy")}</div>
                       </div>
                       <div
                         className={

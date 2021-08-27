@@ -74,6 +74,36 @@
   outline: none;
   min-height: 40px;
 }
+
+.due-date-conatiner {
+  display: flex;
+  justify-content: baseline;
+  flex-direction: row;
+}
+
+.date-label {
+  background-color: lightgrey;
+  padding: 6px 12px;
+  border-radius: 0px 6px 6px 0px;
+  min-height: 30px;
+  margin-right: 24px;
+}
+
+.react-datepicker-wrapper {
+  width: 10% !important;
+}
+
+.due-date-conatiner {
+  width: fit-content;
+}
+
+.due-date {
+  background-color: white;
+  padding: 8px;
+  width: fit-content;
+  border-radius: 6px;
+}
+
 .form-add-button {
   display: flex;
   justify-content: center;

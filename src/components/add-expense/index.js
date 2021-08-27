@@ -6,11 +6,14 @@ import { addExpense } from "../../reduxstore/actions/expenses";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SuccessModal from "./success-modal";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddExpense = () => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState();
+  const [dueDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const { goBack } = useHistory();
@@ -25,6 +28,7 @@ const AddExpense = () => {
     }
 
     const data = {
+      dueDate,
       description,
       amount,
       category,
@@ -60,6 +64,14 @@ const AddExpense = () => {
       <div className="expense-info">
         <div className="details-heading">Add Expense</div>
         <div className="expense-info-card">
+          <div className="due-date-container">
+            <label className="date-label">Choose Due Date - </label>
+            <DatePicker
+              className="due-date"
+              selected={dueDate}
+              onChange={(date) => setStartDate(date)}
+            />
+          </div>
           <div className="form-item">
             <label>Description</label>
             <input

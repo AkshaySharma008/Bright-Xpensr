@@ -2,16 +2,20 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./modal.css";
 import { editExpense } from "../../../reduxstore/actions/expenses";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Modal = (prop) => {
   const { handleCloseBtn, details } = prop;
   const [description, setDescription] = useState(details.description);
   const [amount, setAmount] = useState(details.amount);
   const [category, setCategory] = useState(details.category);
+  const [dueDate, setStartDate] = useState(new Date(details.dueDate));
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
     const updatedData = {
+      dueDate,
       description,
       amount,
       category,
@@ -26,6 +30,14 @@ const Modal = (prop) => {
       <div className="modal-info">
         <div className="modal-info-card">
           <div className="details-heading">Edit Expense</div>
+          <div className="due-date-container">
+            <label className="date-label">Choose Due Date - </label>
+            <DatePicker
+              className="due-date"
+              selected={dueDate}
+              onChange={(date) => setStartDate(date)}
+            />
+          </div>
           <div className="form-item">
             <label>Description</label>
             <input

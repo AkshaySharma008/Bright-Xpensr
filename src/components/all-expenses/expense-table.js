@@ -61,7 +61,7 @@ const ExpenseTable = (props) => {
                     </div>
                     <div className="table-column date">
                       <div className="">
-                        {dateFormat(data.createdAt, "dd-mm-yyyy")}
+                        {dateFormat(data.dueDate, "dd-mm-yyyy")}
                       </div>
                     </div>
                     <div className="table-column category">
