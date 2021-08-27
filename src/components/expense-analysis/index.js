@@ -41,8 +41,8 @@ const ExpenseAnalysis = () => {
         label: "Expense Amount (In INR)",
         data: amountArrayInMonth,
         fill: true,
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgba(255, 99, 132, 0.2)",
+        backgroundColor: "#00baff",
+        borderColor: "#99e3fd",
       },
     ],
   };
