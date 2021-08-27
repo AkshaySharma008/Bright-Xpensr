@@ -25,10 +25,10 @@ A Personal Expense Tracker to manage your personal Expenses with beautiful utili
 
 ## Installation
 
-Fork the Repository in your machine then clone it in your machine (Replace your_username with your username)
+Clone this repo in your machine as
 
 ```bash
-git clone https://github.com/your_username/Bright-Xpensr.git
+git clone https://github.com/AkshaySharma008/Bright-Xpensr.git
 ```
 Move into the project directory and install required dependencies
 
