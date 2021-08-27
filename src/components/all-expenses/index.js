@@ -8,19 +8,27 @@ import ExpenseTable from "./expense-table";
 function AllExpenses(){
     let {expenseList: list} = useSelector((state)=> state.expenses);
     const [listArr, setListArr] = useState(list);
-    const [isFilterApplied, setFilter] = useState(false);
+    const [currentCategorySeached, setCurrentCategorySearched] = useState("None")
     let categoryList = list.map(item => item.category);
     categoryList = ["None", ...new Set(categoryList)]
     const dropdownCategories = [{types: categoryList,},];
+
     const filterByCategory = (e) => {
+        setCurrentCategorySearched(e);
         if(e !== "None")
         list = list.filter(item => item.category === e);
         setListArr(list);
-        setFilter(true);
     }
     useEffect(() => {
         setListArr(listArr)
         }, [listArr])
+
+    useEffect(() => {
+       setListArr(list); 
+       if(currentCategorySeached !== "None")
+        list = list.filter(item => item.category === currentCategorySeached);
+        setListArr(list);
+    }, [list])
 
       return(
         <div className="all-expenses">
@@ -43,7 +51,7 @@ function AllExpenses(){
                 </div>
       </div>
       <div>
-          {isFilterApplied ? (<ExpenseTable list={listArr} />) : (<ExpenseTable list={list} />) }
+          <ExpenseTable list={listArr} />
       </div>
     </div>
     )

@@ -6,25 +6,27 @@ import dateFormat from 'dateformat'
 
 const DueExpenses = () => {
     const [limit, setLimit] = useState(0);
-    const [selectedBill, setSelectedBill] = useState({});
     const {expenseList: list} = useSelector((state)=> state.expenses);
-    const sortedDataList = [...list];
-    sortedDataList.sort((a, b) => a.amount - b.amount);
-
-    useEffect(() => {
-      const list = {};
-      let totalSum = 0;
-      sortedDataList.forEach((element) => {
-        if (element.amount <= limit - totalSum) {
-          list[element.id] = true;
-          totalSum += element.amount;
-        }
-      });
-      setSelectedBill(list);
-    }, [limit]);
-
+    const [sortedListArray, setSortedListArray] = useState([...list].map(v => ({...v, isHighlighted: false})).sort((a, b) => b.amount - a.amount));
     const handleMonthlyBudget = (e) => {
         setLimit(e.target.value);
+    }
+
+    const handleLimit = () =>{
+      let array = [...sortedListArray];
+      let totalSum = 0;
+      array.forEach((element) => {
+        element["isHighlighted"] = false;
+      })
+      array.forEach((element) => {
+        if (element.amount <= limit - totalSum) {
+            element["isHighlighted"] = true;
+          totalSum += parseInt(element.amount);
+          console.log(limit, totalSum)
+        }
+      });
+      setSortedListArray(array);
+      console.log(array);
     }
 
     return (
@@ -38,6 +40,7 @@ const DueExpenses = () => {
                     value={limit}
                     onChange={handleMonthlyBudget}
                 />
+                <button onClick={handleLimit}>Submit</button>
             </div>
             <div className="bills-information">
             <div className='color'></div>
@@ -68,14 +71,14 @@ const DueExpenses = () => {
 
             <div className="table-body">
         <div className="table">
-          {list.length ? (
-            list.map((data, i) => {
+          {sortedListArray.length ? (
+            sortedListArray.map((data, i) => {
               return(
                 <div key={i} className="table-row">
                 <div className='table-column expense-id'>
                 <div className="">{i+1}</div>
               </div>
-              <div className={selectedBill[data.id] ? 'table-column date highlighted' : 'table-column date'}>
+              <div className={ data["isHighlighted"] ? 'table-column date highlighted' : 'table-column date'}>
                 <div className="">{dateFormat(data.createdAt, "dd-mm-yyyy")}</div>
               </div>
               <div className="table-column category">
