@@ -4,6 +4,8 @@ import dateFormat from "dateformat";
 import { useDispatch } from "react-redux";
 import { deleteExpense } from "../../reduxstore/actions/expenses";
 import Modal from "./modal";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const ExpenseTable = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -12,6 +14,7 @@ const ExpenseTable = (props) => {
   const dispatch = useDispatch();
   const handleDeleteExpense = (item) => {
     dispatch(deleteExpense(item));
+    toast("Data Deleted SuccessFully !!!");
   };
 
   const openEditModal = (item) => {
@@ -25,6 +28,14 @@ const ExpenseTable = (props) => {
 
   return (
     <div className="table">
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+      />
       <div className="table-container">
         <div className="table-header">
           <div className="table">

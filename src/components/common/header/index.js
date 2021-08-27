@@ -11,10 +11,10 @@ const Header = () => {
         <label className="logo">Bright Xpensr</label>
       </Link>
       <div className="header-menu">
-        <Link to="/">
+        <Link to="">
           <label
-            className={`menu-option ${tab === "all-expenses" && "active-tab"}`}
-            onClick={() => setTab("all-expenses")}
+            className={`menu-option ${tab === "" && "active-tab"}`}
+            onClick={() => setTab("")}
           >
             All Expenses
           </label>

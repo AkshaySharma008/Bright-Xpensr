@@ -7,20 +7,20 @@ import ExpenseTable from "./expense-table";
 
 const getUniqueCategories = (list) => {
   let uniqueList = list.map((item) => item.category);
-  uniqueList = ["None", ...new Set(uniqueList)];
+  uniqueList = ["All", ...new Set(uniqueList)];
   return uniqueList;
 };
 
 const AllExpenses = () => {
   let { expenseList: list } = useSelector((state) => state.expenses);
   const [listArr, setListArr] = useState(list);
-  const [currentCategorySeached, setCurrentCategorySearched] = useState("None");
+  const [currentCategorySeached, setCurrentCategorySearched] = useState("All");
   let categoryList = getUniqueCategories(list);
   const dropdownCategories = [{ types: categoryList }];
 
   const filterByCategory = (category) => {
     setCurrentCategorySearched(category);
-    if (category !== "None")
+    if (category !== "All")
       list = list.filter((item) => item.category === category);
     setListArr(list);
   };
@@ -31,7 +31,7 @@ const AllExpenses = () => {
 
   useEffect(() => {
     setListArr(list);
-    if (currentCategorySeached !== "None")
+    if (currentCategorySeached !== "All")
       list = list.filter((item) => item.category === currentCategorySeached);
     setListArr(list);
   }, [list]);
@@ -46,7 +46,7 @@ const AllExpenses = () => {
               options={dropdownCategories}
               onSelect={filterByCategory}
               toShow={
-                currentCategorySeached === "None"
+                currentCategorySeached === "All"
                   ? "Choose Category"
                   : currentCategorySeached
               }

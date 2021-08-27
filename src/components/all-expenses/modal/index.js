@@ -5,6 +5,8 @@ import { editExpense } from "../../../reduxstore/actions/expenses";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Modal = (prop) => {
   const { handleCloseBtn, details } = prop;
@@ -23,11 +25,20 @@ const Modal = (prop) => {
       createdAt: details.createdAt,
     };
     dispatch(editExpense(updatedData));
+    toast("Data Updated SuccessFully !!!");
     handleCloseBtn();
   };
 
   return (
     <div className="modal">
+      <ToastContainer
+        position="bottom-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+      />
       <div className="modal-info">
         <div className="modal-info-card">
           <div className="details-heading">Edit Expense</div>
