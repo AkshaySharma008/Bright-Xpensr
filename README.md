@@ -6,6 +6,8 @@ A Personal Expense Tracker to manage your personal Expenses with beautiful utili
 **Note** - <i>Some data has been inserted already for the sake of UI Features and use cases. If you want to remove them, Go to your Local Storage and clear "expense-item" list.</i>
 * Portal Link - https://bright-xpensr.netlify.app/
 
+
+
 ## Contents
 1. [Highlights](#highlights)
 2. [Requirements](#requirements)
